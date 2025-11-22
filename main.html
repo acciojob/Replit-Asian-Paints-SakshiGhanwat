@@ -5,7 +5,7 @@
   <title>Asian Paints Grid</title>
 
   <style>
-    #grid-container {
+    .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 100px);
       grid-template-rows: repeat(3, 100px);
@@ -39,11 +39,10 @@
   <label>Enter Color Name:</label>
   <input type="text" id="colour_id" placeholder="red, blue, yellow"><br>
 
-  <button id="change_button">Change Color</button>
-  <button id="Reset">Reset</button>
+  <button id="change_button">Change</button>
+  <button id="reset_button">Reset</button>
 
-  <div id="grid-container">
-    <!-- Creating 9 grid items -->
+  <div class="grid-container">
     <div class="grid-item" id="1">1</div>
     <div class="grid-item" id="2">2</div>
     <div class="grid-item" id="3">3</div>
@@ -55,21 +54,20 @@
     <div class="grid-item" id="9">9</div>
   </div>
 
-
   <script>
     const changeBtn = document.getElementById("change_button");
-    const resetBtn = document.getElementById("Reset");
+    const resetBtn = document.getElementById("reset_button");
 
     changeBtn.addEventListener("click", function () {
       let blockId = document.getElementById("block_id").value;
       let color = document.getElementById("colour_id").value;
 
-      // Reset all colors first
+      // Reset all blocks first
       for (let i = 1; i <= 9; i++) {
         document.getElementById(i).style.backgroundColor = "transparent";
       }
 
-      // Change selected block's color
+      // Apply color to selected block
       if (blockId >= 1 && blockId <= 9) {
         document.getElementById(blockId).style.backgroundColor = color;
       }
@@ -84,4 +82,5 @@
 
 </body>
 </html>
+
 
